@@ -7,6 +7,11 @@
 
 #include "softwareTimer.h"
 
+void initializeTimer2()
+{
+	HAL_TIM_Base_Start_IT(&htim2);
+}
+
 uint32_t timer2_counter = 0;
 uint8_t timer2_flag = 0;
 
@@ -31,4 +36,10 @@ void timerRun()
 	{
 		timer2_flag = 1;
 	}
+
+}
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+	timerRun();
 }
