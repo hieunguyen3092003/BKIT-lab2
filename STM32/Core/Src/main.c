@@ -58,8 +58,8 @@ void SystemClock_Config(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-void debugProgram(void);
 void initSystem(void);
+void debugProgram(void);
 
 /* USER CODE END 0 */
 
@@ -97,12 +97,14 @@ int main(void)
 
   initSystem();
 
-
-  led_7seg_set_digit(1, 0, 0);
-  led_7seg_set_digit(5, 1, 0);
-  led_7seg_set_digit(4, 2, 0);
-  led_7seg_set_digit(7, 3, 0);
-  led_7seg_set_colon(1);
+  uint8_t counter = 0;
+  int second = 0;
+  int minute = 0;
+  int hour = 0;
+  led_7seg_set_digit(hour / 10, 0, 0);
+  led_7seg_set_digit(hour % 10, 1, 0);
+  led_7seg_set_digit(minute / 10, 2, 0);
+  led_7seg_set_digit(minute % 10, 3, 0);
 
   /* USER CODE END 2 */
 
@@ -112,12 +114,33 @@ int main(void)
   {
 	  if(getFlagTimer2())
 	  {
-//		  setTimer2(250); // 1Hz
-		  setTimer2(25); // 10Hz
+		  setTimer2(50);
 
-		  debugProgram();
+		  counter = (counter + 1) % 20;
 
-		  led_7seg_display();
+		  if(counter == 0)
+		  {
+			  debugProgram();
+			  second++;
+			  if(second == 60)
+			  {
+				  second = 0;
+				  minute++;
+				  if(minute == 60)
+				  {
+					  minute = 0;
+					  hour++;
+					  if(hour == 24)
+					  {
+						  hour = 0;
+					  }
+					  led_7seg_set_digit(hour / 10, 0, 0);
+					  led_7seg_set_digit(hour % 10, 1, 0);
+				  }
+				  led_7seg_set_digit(minute / 10, 2, 0);
+				  led_7seg_set_digit(minute % 10, 3, 0);
+			  }
+		  }
 	  }
     /* USER CODE END WHILE */
 

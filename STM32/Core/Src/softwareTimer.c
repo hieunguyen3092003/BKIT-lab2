@@ -37,6 +37,8 @@ void timerRun()
 		timer2_flag = 1;
 	}
 
+	led_7seg_display();
+
 }
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
