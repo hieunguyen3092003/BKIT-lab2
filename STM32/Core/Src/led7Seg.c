@@ -30,6 +30,20 @@ void led_7seg_init() {
 	HAL_GPIO_WritePin(LD_LATCH_GPIO_Port, LD_LATCH_Pin, 1);
 }
 
+
+/**
+ * @brief
+ * @param
+ * @retval
+ */
+void turnOffLed(int position)
+{
+	if(position >= 0 && position <= 3)
+	{
+		led_7seg[position] = 0xff;
+ 	}
+}
+
 /**
  * @brief	Scan led 7 segment
  * @param	None

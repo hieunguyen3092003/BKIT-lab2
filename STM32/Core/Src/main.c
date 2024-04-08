@@ -26,6 +26,8 @@
 /* USER CODE BEGIN Includes */
 #include "softwareTimer.h"
 #include "led7Seg.h"
+#include "clock.h"
+#include "button.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -35,6 +37,8 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+
+
 
 /* USER CODE END PD */
 
@@ -96,15 +100,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   initSystem();
-
-  uint8_t counter = 0;
-  int second = 0;
-  int minute = 0;
-  int hour = 0;
-  led_7seg_set_digit(hour / 10, 0, 0);
-  led_7seg_set_digit(hour % 10, 1, 0);
-  led_7seg_set_digit(minute / 10, 2, 0);
-  led_7seg_set_digit(minute % 10, 3, 0);
+  initClock(10, 10);
 
   /* USER CODE END 2 */
 
@@ -116,31 +112,9 @@ int main(void)
 	  {
 		  setTimer2(50);
 
-		  counter = (counter + 1) % 20;
+		  clockFSM();
 
-		  if(counter == 0)
-		  {
-			  debugProgram();
-			  second++;
-			  if(second == 60)
-			  {
-				  second = 0;
-				  minute++;
-				  if(minute == 60)
-				  {
-					  minute = 0;
-					  hour++;
-					  if(hour == 24)
-					  {
-						  hour = 0;
-					  }
-					  led_7seg_set_digit(hour / 10, 0, 0);
-					  led_7seg_set_digit(hour % 10, 1, 0);
-				  }
-				  led_7seg_set_digit(minute / 10, 2, 0);
-				  led_7seg_set_digit(minute % 10, 3, 0);
-			  }
-		  }
+		  button_scan();
 	  }
     /* USER CODE END WHILE */
 

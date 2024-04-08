@@ -1,0 +1,8 @@
+../Core/Src/clock.c:24:6:initClock	16	static
+../Core/Src/clock.c:34:6:clockRun	8	static
+../Core/Src/clock.c:65:6:clockConfigMin	8	static
+../Core/Src/clock.c:111:6:clockConfigHour	8	static
+../Core/Src/clock.c:160:5:isButtonPressed	4	static
+../Core/Src/clock.c:168:5:isButtonUp	4	static
+../Core/Src/clock.c:176:5:isButtonDown	4	static
+../Core/Src/clock.c:185:6:clockFSM	8	static

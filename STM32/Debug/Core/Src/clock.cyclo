@@ -1,0 +1,8 @@
+../Core/Src/clock.c:24:6:initClock	1
+../Core/Src/clock.c:34:6:clockRun	5
+../Core/Src/clock.c:65:6:clockConfigMin	7
+../Core/Src/clock.c:111:6:clockConfigHour	7
+../Core/Src/clock.c:160:5:isButtonPressed	2
+../Core/Src/clock.c:168:5:isButtonUp	2
+../Core/Src/clock.c:176:5:isButtonDown	2
+../Core/Src/clock.c:185:6:clockFSM	8

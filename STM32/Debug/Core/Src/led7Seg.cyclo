@@ -1,6 +1,7 @@
 ../Core/Src/led7Seg.c:29:6:led_7seg_init	1
-../Core/Src/led7Seg.c:39:6:led_7seg_display	5
-../Core/Src/led7Seg.c:81:6:led_7seg_set_digit	3
-../Core/Src/led7Seg.c:95:6:led_7seg_set_colon	2
-../Core/Src/led7Seg.c:111:6:led_7seg_debug_turn_on	3
-../Core/Src/led7Seg.c:126:6:led_7seg_debug_turn_off	3
+../Core/Src/led7Seg.c:39:6:turnOffLed	3
+../Core/Src/led7Seg.c:53:6:led_7seg_display	5
+../Core/Src/led7Seg.c:95:6:led_7seg_set_digit	3
+../Core/Src/led7Seg.c:109:6:led_7seg_set_colon	2
+../Core/Src/led7Seg.c:125:6:led_7seg_debug_turn_on	3
+../Core/Src/led7Seg.c:140:6:led_7seg_debug_turn_off	3
